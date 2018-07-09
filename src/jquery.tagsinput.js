@@ -97,7 +97,12 @@
 
 				if (value !='' && skipTag != true) {
                     $('<span>').addClass('tag').append(
-                        $('<span>').text(value).append('&nbsp;&nbsp;'),
+                        $('<span>').click(() => {
+				$('#' + id).removeTag(escape(value));
+				$('#'+id+'_tag').val(value);
+				$('#'+id+'_tag').focus();
+				return false;
+			}).text(value).append('&nbsp;&nbsp;'),
                         $('<a>', {
                             href  : '#',
                             title : 'Removing tag',
